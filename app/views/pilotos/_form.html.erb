@@ -1,0 +1,37 @@
+<%= form_with(model: piloto) do |form| %>
+  <% if piloto.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(piloto.errors.count, "error") %> prohibited this piloto from being saved:</h2>
+
+      <ul>
+        <% piloto.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :usuario_id, style: "display: block" %>
+    <%= form.text_field :usuario_id %>
+  </div>
+
+  <div>
+    <%= form.label :numero_socio, style: "display: block" %>
+    <%= form.text_field :numero_socio %>
+  </div>
+
+  <div>
+    <%= form.label :numero_licencia, style: "display: block" %>
+    <%= form.text_field :numero_licencia %>
+  </div>
+
+  <div>
+    <%= form.label :horas_vuelo, style: "display: block" %>
+    <%= form.number_field :horas_vuelo %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

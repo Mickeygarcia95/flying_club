@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Aeronaves</h1>
+
+<div id="aeronaves">
+  <% @aeronaves.each do |aeronafe| %>
+    <%= render aeronafe %>
+    <p>
+      <%= link_to "Show this aeronave", aeronafe %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New aeronave", new_aeronafe_path %>

@@ -1,0 +1,62 @@
+<%= form_with(model: operaciones_aerea) do |form| %>
+  <% if operaciones_aerea.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(operaciones_aerea.errors.count, "error") %> prohibited this operaciones_aerea from being saved:</h2>
+
+      <ul>
+        <% operaciones_aerea.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :aeronave_id, style: "display: block" %>
+    <%= form.text_field :aeronave_id %>
+  </div>
+
+  <div>
+    <%= form.label :piloto_id, style: "display: block" %>
+    <%= form.text_field :piloto_id %>
+  </div>
+
+  <div>
+    <%= form.label :fecha_operacion, style: "display: block" %>
+    <%= form.date_field :fecha_operacion %>
+  </div>
+
+  <div>
+    <%= form.label :horas_vuelo, style: "display: block" %>
+    <%= form.number_field :horas_vuelo %>
+  </div>
+
+  <div>
+    <%= form.label :toque_y_despegue, style: "display: block" %>
+    <%= form.number_field :toque_y_despegue %>
+  </div>
+
+  <div>
+    <%= form.label :aterrizajes, style: "display: block" %>
+    <%= form.number_field :aterrizajes %>
+  </div>
+
+  <div>
+    <%= form.label :incidentes, style: "display: block" %>
+    <%= form.check_box :incidentes %>
+  </div>
+
+  <div>
+    <%= form.label :comentarios, style: "display: block" %>
+    <%= form.text_area :comentarios %>
+  </div>
+
+  <div>
+    <%= form.label :aerodromos, style: "display: block" %>
+    <%= form.text_field :aerodromos %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

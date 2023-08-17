@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @aeronafe %>
+
+<div>
+  <%= link_to "Edit this aeronave", edit_aeronafe_path(@aeronafe) %> |
+  <%= link_to "Back to aeronaves", aeronaves_path %>
+
+  <%= button_to "Destroy this aeronave", @aeronafe, method: :delete %>
+</div>

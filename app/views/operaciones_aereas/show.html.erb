@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @operaciones_aerea %>
+
+<div>
+  <%= link_to "Edit this operaciones aerea", edit_operaciones_aerea_path(@operaciones_aerea) %> |
+  <%= link_to "Back to operaciones aereas", operaciones_aereas_path %>
+
+  <%= button_to "Destroy this operaciones aerea", @operaciones_aerea, method: :delete %>
+</div>

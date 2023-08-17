@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Operaciones aereas</h1>
+
+<div id="operaciones_aereas">
+  <% @operaciones_aereas.each do |operaciones_aerea| %>
+    <%= render operaciones_aerea %>
+    <p>
+      <%= link_to "Show this operaciones aerea", operaciones_aerea %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New operaciones aerea", new_operaciones_aerea_path %>

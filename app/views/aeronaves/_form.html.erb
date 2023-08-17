@@ -1,0 +1,42 @@
+<%= form_with(model: aeronafe) do |form| %>
+  <% if aeronafe.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(aeronafe.errors.count, "error") %> prohibited this aeronafe from being saved:</h2>
+
+      <ul>
+        <% aeronafe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :modelo, style: "display: block" %>
+    <%= form.text_field :modelo %>
+  </div>
+
+  <div>
+    <%= form.label :matricula, style: "display: block" %>
+    <%= form.text_field :matricula %>
+  </div>
+
+  <div>
+    <%= form.label :horas_vuelo_acumulado, style: "display: block" %>
+    <%= form.number_field :horas_vuelo_acumulado %>
+  </div>
+
+  <div>
+    <%= form.label :horas_vuelo_mantencion, style: "display: block" %>
+    <%= form.number_field :horas_vuelo_mantencion %>
+  </div>
+
+  <div>
+    <%= form.label :mantencion_total, style: "display: block" %>
+    <%= form.number_field :mantencion_total %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
