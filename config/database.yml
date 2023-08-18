@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: FlyingClub_production
-  username: FlyingClub
-  password: <%= ENV["FLYINGCLUB_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
