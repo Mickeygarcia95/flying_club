@@ -1,6 +1,7 @@
 class AeronavesController < ApplicationController
   before_action :authenticate_usuario!
   before_action :set_aeronafe, only: %i[ show edit update destroy ]
+  layout 'dashboard'
 
   # GET /aeronaves or /aeronaves.json
   def index
@@ -9,6 +10,7 @@ class AeronavesController < ApplicationController
 
   # GET /aeronaves/1 or /aeronaves/1.json
   def show
+    @operaciones = @aeronave.operaciones_aereas.includes(piloto: :usuario).order(fecha_operacion: :desc)
   end
 
   # GET /aeronaves/new
@@ -61,7 +63,7 @@ class AeronavesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_aeronafe
-      @aeronafe = Aeronave.find(params[:id])
+      @aeronave = Aeronave.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

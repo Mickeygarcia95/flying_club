@@ -1,6 +1,7 @@
 class PilotosController < ApplicationController
   before_action :authenticate_usuario!
   before_action :set_piloto, only: %i[ show edit update destroy ]
+  layout 'dashboard'
 
   # GET /pilotos or /pilotos.json
   def index
@@ -9,6 +10,7 @@ class PilotosController < ApplicationController
 
   # GET /pilotos/1 or /pilotos/1.json
   def show
+    @operaciones = @piloto.operaciones_aereas.includes(:aeronave).order(fecha_operacion: :desc)
   end
 
   # GET /pilotos/new

@@ -1,27 +1,50 @@
-<div id="<%= dom_id aeronave %>">
-  <p>
-    <strong>Modelo:</strong>
-    <%= aeronave.modelo %>
-  </p>
+<div id="<%= dom_id aeronave %>" class="bg-white overflow-hidden shadow rounded-lg mt-3 p-5">
+  <div class="flex flex-col gap-4">
+    <dl class="flex flex-row items-center justify-start gap-40">
+      <dt class="w-40 font-semibold leading-none text-gray-900 md:w-48 dark:text-white">
+        Matricula
+      </dt>
+      <dd class="font-light text-gray-500 dark:text-gray-400">
+        <%= aeronave.matricula %>
+      </dd>
+    </dl>
 
-  <p>
-    <strong>Matricula:</strong>
-    <%= aeronave.matricula %>
-  </p>
+    <dl class="flex flex-row items-center justify-start gap-40">
+      <dt class="w-40 font-semibold leading-none text-gray-900 md:w-48 dark:text-white">
+        Modelo
+      </dt>
+      <dd class="font-light text-gray-500 dark:text-gray-400">
+        <%= aeronave.modelo %>
+      </dd>
+    </dl>
 
-  <p>
-    <strong>Horas vuelo acumulado:</strong>
-    <%= aeronave.horas_vuelo_acumulado %>
-  </p>
+    <dl class="flex flex-row items-center justify-start gap-40">
+      <dt class="w-40 font-semibold leading-none text-gray-900 md:w-48 dark:text-white">
+        Horas vuelo acumulado
+      </dt>
+      <dd class="font-light text-gray-500 dark:text-gray-400">
+        <%= aeronave.horas_vuelo_acumulado %>
+      </dd>
+    </dl>
 
-  <p>
-    <strong>Horas vuelo mantencion:</strong>
-    <%= aeronave.horas_vuelo_mantencion %>
-  </p>
+    <dl class="flex flex-row items-center justify-start gap-40">
+      <dt class="w-40 font-semibold leading-none text-gray-900 md:w-48 dark:text-white">
+        Horas vuelo desde última revisión
+      </dt>
+      <dd class="font-light text-gray-500 dark:text-gray-400">
+        <%= aeronave.horas_vuelo_mantencion %>
+      </dd>
+    </dl>
 
-  <p>
-    <strong>Mantencion total:</strong>
-    <%= aeronave.mantencion_total %>
-  </p>
+    <dl class="flex flex-row items-center justify-start gap-40">
+      <dt class="w-40 font-semibold leading-none text-gray-900 md:w-48 dark:text-white">
+        Cantidad de mantenciones totales
+      </dt>
+      <dd class="font-light text-gray-500 dark:text-gray-400">
+        <%= aeronave.mantencion_total %>
+      </dd>
+    </dl>
+
+  </div>
 
 </div>

@@ -69,3 +69,4 @@ end
 
 gem 'devise'
 
+gem "tailwindcss-rails", "~> 2.0"

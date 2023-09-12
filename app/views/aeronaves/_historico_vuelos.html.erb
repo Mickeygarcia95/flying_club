@@ -1,0 +1,51 @@
+<div class="overflow-x-auto py-4">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-4 py-4">
+          Fecha de vuelo
+        </th>
+        <th scope="col" class="px-4 py-4">
+          Piloto
+        </th>
+        <th scope="col" class="px-4 py-4">
+          Horas de vuelo
+        </th>
+        <th scope="col" class="px-4 py-4">
+          Total toques y despegues
+        </th>
+        <th scope="col" class="px-4 py-4">
+          Aterrizajes finales
+        </th>
+        <th scope="col" class="px-4 py-4">
+          Incidentes
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @operaciones.each do |operacion| %>
+        <tr class="border-b dark:border-gray-700">
+          <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <%= operacion.fecha_operacion %>
+          </td>
+          <td class="px-4 py-3">
+            <%= operacion.piloto.full_name %>
+          </td>
+          <td class="px-4 py-3">
+            <%= operacion.horas_vuelo %>
+          </td>
+          <td class="px-4 py-3">
+            <%= operacion.toque_y_despegue %>
+          </td>
+          <td class="px-4 py-3">
+            <%= operacion.aterrizajes %>
+          </td>
+          <td class="px-4 py-3">
+            <%= operacion.comentarios %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

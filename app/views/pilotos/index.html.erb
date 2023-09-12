@@ -1,14 +1,55 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Pilotos</h1>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+  <!-- Replace with your content -->
+  <div class="relative overflow-hidden bg-white dark:bg-gray-800 sm:rounded-lg">
+    <div class="flex-row items-center justify-between p-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
+      <div>
+        <h5 class="mr-3 font-semibold dark:text-white">Pilotos</h5>
+        <p class="text-gray-500 dark:text-gray-400">Manage all your existing users or add a new one</p>
+      </div>
+    </div>
+  </div>
 
-<div id="pilotos">
-  <% @pilotos.each do |piloto| %>
-    <%= render piloto %>
-    <p>
-      <%= link_to "Show this piloto", piloto %>
-    </p>
-  <% end %>
+
+  <!-- Your table goes here -->
+  <div id="pilotos" class="overflow-x-auto py-4">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-4 py-4">
+          Número de socio
+        </th>
+        <th scope="col" class="px-4 py-4">
+          Nombre
+        </th>
+        <th scope="col" class="px-4 py-4">
+          Apellido
+        </th>
+        <th scope="col" class="px-4 py-4">
+          <span class="sr-only">Show</span>
+        </th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @pilotos.each do |piloto| %>
+        <tr class="border-b dark:border-gray-700">
+          <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <%= piloto.numero_socio %>
+          </td>
+          <td class="px-4 py-3">
+            <%= piloto.usuario.nombre %>
+          </td>
+          <td class="px-4 py-3">
+            <%= piloto.usuario.apellidos %>
+          </td>
+          <td class="px-4 py-3 flex items-center justify-end">
+            <%= link_to "Ver detalle", piloto, {class: "text-indigo-600 hover:text-indigo-900"} %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-<%= link_to "New piloto", new_piloto_path %>

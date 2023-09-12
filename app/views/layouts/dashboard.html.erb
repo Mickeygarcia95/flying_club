@@ -14,6 +14,16 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="antialiased bg-white dark:bg-gray-900">
+
+      <%= render 'navbar' %>
+      <%= render 'sidebar' %>
+
+      <main class="p-4 md:ml-64 h-auto pt-20">
+        <%= yield %>
+      </main>
+
+
+    </div>
   </body>
 </html>
