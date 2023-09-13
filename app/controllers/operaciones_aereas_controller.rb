@@ -1,6 +1,7 @@
 class OperacionesAereasController < ApplicationController
   before_action :authenticate_usuario!
   before_action :set_operaciones_aerea, only: %i[ show edit update destroy ]
+  layout 'operaciones'
 
   # GET /operaciones_aereas or /operaciones_aereas.json
   def index
@@ -14,6 +15,7 @@ class OperacionesAereasController < ApplicationController
   # GET /operaciones_aereas/new
   def new
     @operaciones_aerea = OperacionesAerea.new
+    @aeronaves = Aeronave.all
   end
 
   # GET /operaciones_aereas/1/edit
@@ -26,8 +28,8 @@ class OperacionesAereasController < ApplicationController
 
     respond_to do |format|
       if @operaciones_aerea.save
-        format.html { redirect_to operaciones_aerea_url(@operaciones_aerea), notice: "Operaciones aerea was successfully created." }
-        format.json { render :show, status: :created, location: @operaciones_aerea }
+        format.html { redirect_to new_operaciones_aerea_url, notice: "Operación aérea guardada con éxito." }
+        format.json { render :new, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @operaciones_aerea.errors, status: :unprocessable_entity }

@@ -11,52 +11,63 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :aeronave_id, style: "display: block" %>
-    <%= form.text_field :aeronave_id %>
+  <%= form.hidden_field :piloto_id, value: current_usuario.piloto.id %>
+
+  <div class="mb-6">
+    <%= label_tag "Piloto al mando", nil, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= text_field_tag 'piloto_name', current_usuario.full_name, disabled: true, "aria-label":"disabled input", class: "bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :aeronave_id, "Tipo de aeronave", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.collection_select :aeronave_id, @aeronaves, :id, :matricula, {prompt: "Selecciona la aeronave"}, {class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"} %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :fecha_operacion, "Fecha de la operación", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.date_field :fecha_operacion, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :horas_vuelo, "Total horas de vuelo", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.number_field :horas_vuelo, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :toque_y_despegue, "Operaciones de toques y despegues", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.number_field :toque_y_despegue, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :aterrizajes, "Aterrizajes finales", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.number_field :aterrizajes, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :aerodromos, "Aeródromo de operaciones", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :aerodromos, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :incidentes, class: "flex justify-between items-center" do %>
+      <div class="flex flex-col">
+        <span class="text-sm font-medium text-gray-900 dark:text-gray-300">Reportar incidente</span>
+        <span class="text-sm font-light text-gray-600 dark:text-gray-300">Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</span>
+      </div>
+      <div class="relative inline-flex items-center cursor-pointer">
+        <%= form.check_box :incidentes, class: "sr-only peer" %>
+        <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :comentarios, "Detalle incidente", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_area :comentarios, rows: 4, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
   </div>
 
   <div>
-    <%= form.label :piloto_id, style: "display: block" %>
-    <%= form.text_field :piloto_id %>
-  </div>
 
-  <div>
-    <%= form.label :fecha_operacion, style: "display: block" %>
-    <%= form.date_field :fecha_operacion %>
-  </div>
-
-  <div>
-    <%= form.label :horas_vuelo, style: "display: block" %>
-    <%= form.number_field :horas_vuelo %>
-  </div>
-
-  <div>
-    <%= form.label :toque_y_despegue, style: "display: block" %>
-    <%= form.number_field :toque_y_despegue %>
-  </div>
-
-  <div>
-    <%= form.label :aterrizajes, style: "display: block" %>
-    <%= form.number_field :aterrizajes %>
-  </div>
-
-  <div>
-    <%= form.label :incidentes, style: "display: block" %>
-    <%= form.check_box :incidentes %>
-  </div>
-
-  <div>
-    <%= form.label :comentarios, style: "display: block" %>
-    <%= form.text_area :comentarios %>
-  </div>
-
-  <div>
-    <%= form.label :aerodromos, style: "display: block" %>
-    <%= form.text_field :aerodromos %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Enviar", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
   </div>
 <% end %>
