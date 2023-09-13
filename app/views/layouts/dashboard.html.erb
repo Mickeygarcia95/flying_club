@@ -12,8 +12,12 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <%= render partial: 'application/toast', locals: { type: "info", message: notice } %>
+    <% elsif alert %>
+      <%= render partial: 'application/toast', locals: { type: "alert", message: alert } %>
+    <% end %>
+
     <div class="antialiased bg-white dark:bg-gray-900">
 
       <%= render 'navbar' %>

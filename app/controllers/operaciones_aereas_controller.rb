@@ -1,7 +1,7 @@
 class OperacionesAereasController < ApplicationController
   before_action :authenticate_usuario!
   before_action :set_operaciones_aerea, only: %i[ show edit update destroy ]
-  layout 'operaciones'
+  layout 'dashboard'
 
   # GET /operaciones_aereas or /operaciones_aereas.json
   def index
