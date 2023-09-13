@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :piloto_id, value: current_usuario.piloto.id %>
+  <%= form.hidden_field :piloto_id, value: current_usuario.piloto&.id %>
 
   <div class="mb-6">
     <%= label_tag "Piloto al mando", nil, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
