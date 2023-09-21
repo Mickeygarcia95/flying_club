@@ -67,10 +67,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "flying.io" }
 
   ActionMailer::Base.smtp_settings = {
-    domain: 'flying.io',
+    domain: 'flyingclub.onrender.com',
     address:        "smtp.sendgrid.net",
     port:            587,
     authentication: :plain,
+    enable_starttls_auto: true,
     user_name:      'apikey',
     password:       ENV['SENDGRID_API_KEY']
   }
