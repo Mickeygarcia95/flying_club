@@ -13,6 +13,7 @@
       <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { "data-turbo": "false", method: :put, class: 'space-y-4 md:space-y-6' }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
+          <%= f.hidden_field :reset_password_token %>
 
           <div>
             <%= f.label :password, "Nueva password", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
