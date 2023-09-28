@@ -16,6 +16,7 @@ class PilotosController < ApplicationController
   # GET /pilotos/new
   def new
     @piloto = Piloto.new
+    @usuarios = Usuario.all
   end
 
   # GET /pilotos/1/edit

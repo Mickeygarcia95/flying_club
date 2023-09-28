@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :usuario_id, style: "display: block" %>
-    <%= form.text_field :usuario_id %>
+    <%= form.collection_select :usuario_id, @usuarios, :id, :nombre, {prompt: "Seleccione el usuario"} %>
   </div>
 
   <div>
